@@ -20,8 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                     .antMatchers("/","home").permitAll()
-                    //.antMatchers("/admin").hasRole("ADMIN")
-                    //.anyRequest().authenticated()
+                    .anyRequest().authenticated()
                     .and()
                 .exceptionHandling()
                     .accessDeniedPage("/denied")
