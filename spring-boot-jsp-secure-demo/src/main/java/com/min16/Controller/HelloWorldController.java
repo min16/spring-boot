@@ -1,5 +1,6 @@
 package com.min16.Controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,7 @@ public class HelloWorldController {
     }
 
     @RequestMapping("/admin")
+    @PreAuthorize("hasRole('ADMIN')")
     public String helloAdmin(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
@@ -34,6 +36,7 @@ public class HelloWorldController {
     }
 
     @RequestMapping("/hello")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     public String hello(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName();
