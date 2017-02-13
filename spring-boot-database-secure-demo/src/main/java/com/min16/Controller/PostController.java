@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by DevNewbie on 2017-02-09.
@@ -18,15 +17,15 @@ public class PostController {
         return "posts";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/posts", method = RequestMethod.POST)
-    @PreAuthorize("hasRole('ADMIN')")
     public String createPost(Model model){
         model.addAttribute("result", "post is successfully saved");
         return "posts";
     }
 
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value="/posts/write")
-    @PreAuthorize("hasRole('ADMIN')")
     public String write(Model model){
         return "write";
     }
