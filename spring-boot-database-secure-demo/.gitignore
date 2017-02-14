@@ -15,7 +15,7 @@ target/
 *.iml
 *.ipr
 datasource.properties
-
+memo/
 
 ### NetBeans ###
 nbproject/private/

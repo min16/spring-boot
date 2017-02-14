@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import org.apache.ibatis.type.BaseTypeHandler;
 import org.apache.ibatis.type.JdbcType;
 import org.apache.ibatis.type.MappedJdbcTypes;
-import org.apache.ibatis.type.MappedTypes;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 @MappedJdbcTypes(JdbcType.VARCHAR)
